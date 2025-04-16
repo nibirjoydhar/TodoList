@@ -11,10 +11,8 @@ app.use(cors());
 app.use(express.json()); // ✅ Important for POST
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/todolist', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://todolist_mongodb_1:27017/todolist', { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 // Routes   
 

@@ -7,7 +7,7 @@ function Home() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = () => {
-    axios.get('http://localhost:3001/get')
+    axios.get('http://52.62.105.224:3001/get')
       .then(result => setTodos(result.data))
       .catch(err => console.log(err));
   };
@@ -17,7 +17,7 @@ function Home() {
   }, []);
 
   const handleDone = (id) => {
-    axios.put(`http://localhost:3001/update/${id}`)
+    axios.put(`http://52.62.105.224:3001/update/${id}`)
       .then(() => fetchTodos())
       .catch(err => console.log(err));
   };
@@ -27,7 +27,7 @@ function Home() {
       const confirmDelete = window.confirm("This task is not marked as done. Are you sure you want to delete it?");
       if (!confirmDelete) return;
     }
-    axios.put(`http://localhost:3001/delete/${todo._id}`)
+    axios.put(`http://52.62.105.224:3001/delete/${todo._id}`)
       .then(() => fetchTodos())
       .catch(err => console.log(err));
   };

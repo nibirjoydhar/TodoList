@@ -7,7 +7,7 @@ function Create({ onAdd }) {
   const handleAdd = () => {
     if (!task.trim()) return;
 
-    axios.post('http://localhost:3001/add', { task })
+    axios.post('http://52.62.105.224:3001/add', { task })
       .then(() => {
         setTask('');
         if (onAdd) onAdd(); // refresh list

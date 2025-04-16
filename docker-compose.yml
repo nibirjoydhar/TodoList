@@ -1,0 +1,30 @@
+version: '3'
+services:
+  frontend:
+    build: ./todolist
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://52.62.105.224:5000
+    depends_on:
+      - backend
+
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+
