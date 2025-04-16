@@ -1,0 +1,13 @@
+chmod 400 todolist.pem
+ssh -i "todolist.pem" ubuntu@52.62.105.224
+sudo apt update && sudo apt upgrade -y
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+npm -v
+sudo apt install git -y
+sudo apt install -y mongodb
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
+git clone https://github.com/nibirjoydhar/TodoList.git
+cd TodoList
