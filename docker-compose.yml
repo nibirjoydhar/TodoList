@@ -1,18 +1,19 @@
 version: '3'
+
 services:
   frontend:
     build: ./todolist
     ports:
-      - "3000:80"
+      - "3000:80" # Map container port 80 to host port 3000
     environment:
-      - REACT_APP_API_URL=http://52.62.105.224:5000
+      - REACT_APP_API_URL=http://52.62.105.224:3001
     depends_on:
       - backend
 
   backend:
     build: ./server
     ports:
-      - "5000:5000"
+      - "3001:3001"
     env_file:
       - .env
     depends_on:
